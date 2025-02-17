@@ -19,7 +19,7 @@ export function SiteHeader() {
             <nav className="flex items-center gap-2">
               
               <ModeSwitcher />
-              <LanguageSwitcher />
+              {/* <LanguageSwitcher /> */}
             </nav>
           </div>
         </div>

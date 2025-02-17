@@ -63,11 +63,11 @@ const data = {
         },
         {
           title: "Conteudos",
-          url: "/dashboard/content",
+          url: "/dashboard/contents",
         },
         {
           title: "Apps",
-          url: "/dashboard/app",
+          url: "/dashboard/apps",
         },
       ],
     },
