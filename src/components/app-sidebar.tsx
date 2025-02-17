@@ -6,9 +6,7 @@ import {
   BookOpen,
   Bot,
   Command,
-
   GalleryVerticalEnd,
-
   Settings2,
   SquareTerminal,
 } from "lucide-react";
@@ -22,6 +20,9 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
 
@@ -51,7 +52,7 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Dashboard",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
@@ -61,21 +62,17 @@ const data = {
           url: "/dashboard",
         },
         {
-          title: "History",
-          url: "/dashboard/inbox",
+          title: "Conteudos",
+          url: "/dashboard/content",
         },
         {
-          title: "Posts [Server]",
-          url: "/dashboard/posts",
-        },
-        {
-          title: "Posts [Client]",
-          url: "/dashboard/posts-client",
+          title: "Apps",
+          url: "/dashboard/app",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Audios",
       url: "#",
       icon: Bot,
       items: [
@@ -94,7 +91,7 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Blogs",
       url: "#",
       icon: BookOpen,
       items: [
@@ -116,37 +113,28 @@ const data = {
         },
       ],
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ]
+  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <a href="/dashboard">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <GalleryVerticalEnd className="size-4" />
+                </div>
+                <div className="flex flex-col gap-0.5 leading-none">
+                  <span className="font-semibold">GTSHub</span>
+                  <span className="">v1.0.0</span>
+                </div>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
